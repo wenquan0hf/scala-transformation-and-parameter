@@ -1,4 +1,5 @@
-# View 限定 #
+# View 限定 
+
 上篇的例子
 
 ```
@@ -63,7 +64,7 @@ def maxList[T <% Ordered[T]](element:List[T]) :T =
     }
 ```
 
-其中<% 为 View 限定，也就是说，我可以使用任意类型的 T，只要它可以看成类型 Ordered[T]。这和 T 是 Orderer[T]的子类不同，它不需要 T 和 Orderer[T]之间存在继承关系。 而如果类型 T 正好也是一个 Ordered[T]类型，你也可以直接把 List[T]传给 maxList，此时编译器使用一个恒等隐含变换：
+其中 <% 为 View 限定，也就是说，我可以使用任意类型的 T，只要它可以看成类型 Ordered[T]。这和 T 是 Orderer[T]的子类不同，它不需要 T 和 Orderer[T]之间存在继承关系。 而如果类型 T 正好也是一个 Ordered[T]类型，你也可以直接把 List[T]传给 maxList，此时编译器使用一个恒等隐含变换：
 
 ```
 implicit def identity[A](x:A): A =x 
