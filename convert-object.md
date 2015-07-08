@@ -1,8 +1,11 @@
-# 转换被方法调用的对象 #
+# 转换被方法调用的对象 
+
 隐式变换也可以转换调用方法的对象，比如但编译器看到X .method，而类型 X 没有定义 method（包括基类)方法，那么编译器就查找作用域内定义的从 X 到其它对象的类型转换，比如 Y，而类型Y定义了 method 方法，编译器就首先使用隐含类型转换把 X 转换成 Y，然后调用 Y 的 method。
 
 下面我们看看这种用法的两个典型用法：
-## 支持新的类型 ##
+
+## 支持新的类型 
+
 这里我们使用前面例子 Scala开发教程(50): Ordered Trait 中定义的 Rational 类型为例：
 
 ```
@@ -69,7 +72,7 @@ scala> implicit def int2Rational(x:Int) = new Rational(x)
 int2Rational: (x: Int)Rational
 ```
 
-现在再执行 1+oneHalf:
+现在再执行 `1+oneHalf`:
 
 ```
 scala> 1 + oneHalf
@@ -82,7 +85,8 @@ res3: Rational = 3/2
 int2Rational(1)+oneHalf
 ```
 
-## 模拟新的语法结构 ##
+## 模拟新的语法结构 
+
 隐式转换可以用来扩展 Scala 语言，定义新的语法结构，比如我们在定义一个 Map 对象时可以使用如下语法：
 
 ```
